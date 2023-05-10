@@ -1,0 +1,88 @@
+{% extends "orders/base.html" %}
+{% block content %}
+
+<div>
+
+    <div>
+        <a class="btn-secondary btn-sm mt-1 mb-1" href="{%url 'orders-update' object.id %}"> update</a>
+        <a class="btn-danger btn-sm mt-1 mb-1" href="{%url 'orders-delete' object.id%}"> delete</a>
+    </div>
+
+</div>
+
+<article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ order.staff.profile.image.url }}">
+    <div class="media-body">
+
+        <div class="article-metadata">
+            <small class="text-muted">{{ object.dateTimeOrdered }}</small>
+
+            <a class="mr-2" href="{% url 'orders-detail' order.id%}">
+                <p> Customer Name: {{ object.CustName}}</p>
+            </a>
+        </div>
+
+        <a class="mr-2" href="#">
+            <p> Staff Name: {{ object.staff}}</p>
+        </a>
+
+        <a class="mr-2" href="#">
+            <p> Restaurant Name: {{ object.RestName}}</p>
+        </a>
+
+        <a class="mr-2" href="#">
+            <p> Table Info: {{ object.TableInfo}}</p>
+        </a>
+
+
+        <div class="article-metadata">
+            <a class="mr-2" href="#">
+                <p> State of the Table: {{ object.Table_state}}</p>
+            </a>
+        </div>
+
+
+
+
+
+
+        <div class="article-metadata">
+            <h2>ORDERS</h2>
+
+
+            <ol>
+                <li>
+                    <div class="article-metadata">
+                        <a class="mr-2" href="#">
+                            <p> Starter dish : {{ object.starter}}</p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="article-metadata">
+                        <a class="mr-2" href="#">
+                            <p> Main dish: {{ object.main}}</p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="article-metadata">
+                        <a class="mr-2" href="#">
+                            <p> Desserts: {{ object.desserts}}</p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="article-metadata">
+                        <a class="mr-2" href="#">
+                            <p> Drinks: {{ object.drinks}}</p>
+                        </a>
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <p class="article-content">State of the Table : {{ object.bill }}</p>
+    </div>
+</article>
+
+{% endblock %}

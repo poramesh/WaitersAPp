@@ -1,0 +1,83 @@
+{% extends "orders/base.html" %}
+{% block content %}
+
+{% for order in orders %}
+
+
+<article class="media content-section">
+  <img class="rounded-circle article-img" src="{{ order.staff.profile.image.url }}">
+  <div class="media-body">
+
+    <div class="article-metadata">
+      <small class="text-muted">{{ order.dateTimeOrdered }}</small>
+
+      <a class="mr-2" href="{% url 'orders-detail' order.id%}">
+        <p> Customer Name: {{ order.CustName}}</p>
+      </a>
+    </div>
+
+    <a class="mr-2" href="#">
+      <p> Staff Name: {{ order.staff}}</p>
+    </a>
+
+    <a class="mr-2" href="#">
+      <p> Restaurant Name: {{ order.RestName}}</p>
+    </a>
+
+    <a class="mr-2" href="#">
+      <p> Table Info: {{ order.TableInfo}}</p>
+    </a>
+
+
+      <div class="article-metadata">
+        <a class="mr-2" href="#">
+          <p> State of the Table: {{ order.Table_state}}</p>
+        </a>
+      </div>
+    
+
+
+
+   
+
+    <div class="article-metadata">
+      <h2>ORDERS</h2>
+      
+    
+    <ol>
+      <li>
+        <div class="article-metadata">
+          <a class="mr-2" href="#">
+            <p> Starter dish : {{ order.starter}}</p>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="article-metadata">
+          <a class="mr-2" href="#">
+            <p> Main dish: {{ order.main}}</p>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="article-metadata">
+          <a class="mr-2" href="#">
+            <p> Desserts: {{ order.desserts}}</p>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="article-metadata">
+          <a class="mr-2" href="#">
+            <p> Drinks: {{ order.drinks}}</p>
+          </a>
+        </div>
+      </li>
+    </ol>
+</div>
+    <p class="article-content">State of the Table : {{ order.bill }}</p>
+  </div>
+</article>
+{% endfor %}
+
+{% endblock %}
